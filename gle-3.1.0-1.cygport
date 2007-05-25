@@ -1,0 +1,10 @@
+DESCRIPTION="OpenGL Tubing and Extrusion library"
+HOMEPAGE="http://linas.org/gle/"
+SRC_URI="mirror://sourceforge/gle/${P}.tar.gz"
+
+PKG_NAMES="${PN} lib${PN}${PV_MAJ}"
+PKG_HINTS="setup lib"
+PKG_CONTENTS[0]='usr/include/ usr/lib/ usr/share/'
+PKG_CONTENTS[1]='usr/bin/*.dll'
+
+CYGCONF_ARGS="--disable-static"
