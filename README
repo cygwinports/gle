@@ -11,20 +11,19 @@ texture coordinates as output. GLE uses the GL or OpenGL(R) API's to
 perform the actual rendering.
 
 Runtime requirements:
-  cygwin-1.5.24-2
-  libGL1-6.5.3-1
-  libGLU1-6.5.3-1
+  cygwin-1.5.25-15
+  libGL1-7.2-2
+  libGLU1-7.2-2
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.24-1
-  autoconf2.5-2.61-1
-  automake1.4-1.4p6-4
-  binutils-20060817-1
-  cygport-0.2.11-1
-  gawk-3.1.5-4
+  autoconf2.5-2.63-1
+  automake1.4-1.4p6-5
+  binutils-20080624-2
+  cygport-0.4.2-1
+  gawk-3.1.6-1
   gcc-core-3.4.4-3
-  libtool1.5-1.5.23a-2
+  libtool-2.2.6a-1
   make-3.81-1
   sed-4.1.5-2
 
@@ -45,18 +44,15 @@ Build instructions:
 
 This will create:
   /usr/src/gle-3.1.0-X-src.tar.bz2
-  /usr/src/gle-3.1.0-X.tar.bz2
+  /usr/src/libgle-devel-3.1.0-X.tar.bz2
   /usr/src/libgle3-3.1.0-X.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary packages:
 
-(gle)
-  /usr/include/GL/gle.h
-  /usr/lib/libgle.dll.a
-  /usr/lib/libgle.la
-  /usr/share/doc/Cygwin/gle-3.1.0.README
+(libgle3)
+  /usr/bin/cyggle-3.dll
   /usr/share/doc/gle-3.1.0/AUTHORS
   /usr/share/doc/gle-3.1.0/COPYING
   /usr/share/doc/gle-3.1.0/COPYING.artistic
@@ -66,6 +62,11 @@ Files included in the binary packages:
   /usr/share/doc/gle-3.1.0/NEWS
   /usr/share/doc/gle-3.1.0/README
   /usr/share/doc/gle-3.1.0/gle-3.0.lsm
+
+(libgle-devel)
+  /usr/include/GL/gle.h
+  /usr/lib/libgle.dll.a
+  /usr/lib/libgle.la
   /usr/share/doc/gle-3.1.0/examples/COPYING
   /usr/share/doc/gle-3.1.0/examples/Makefile.examples
   /usr/share/doc/gle-3.1.0/examples/README
@@ -185,12 +186,12 @@ Files included in the binary packages:
   /usr/share/man/man3/gleToroid.3gle.gz
   /usr/share/man/man3/gleTwistExtrusion.3gle.gz
 
-(libgle3)
-  /usr/bin/cyggle-3.dll
-
 ------------------
 
 Port Notes:
+
+----- version 3.1.0-2 -----
+Rebuilt.
 
 ----- version 3.1.0-1 -----
 Initial release for Cygwin.

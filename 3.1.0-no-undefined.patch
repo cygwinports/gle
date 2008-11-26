@@ -1,0 +1,12 @@
+--- origsrc/gle-3.1.0/src/Makefile.am	2003-03-17 22:09:44.000000000 -0600
++++ src/gle-3.1.0/src/Makefile.am	2007-05-25 15:26:55.101445800 -0500
+@@ -21,7 +21,8 @@
+   view.c
+ 
+ 
+-libgle_la_LDFLAGS = -version-info 4:0:1
++libgle_la_LDFLAGS = -version-info 4:0:1 -no-undefined
++libgle_la_LIBADD = -lGLU -lGL
+ 
+ # make sure we install gle.h into /usr/include/GL/gle.h or thereabouts
+ pkgincludedir = $(includedir)/GL

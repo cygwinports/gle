@@ -8,24 +8,6 @@
 +docdir = $(datadir)/doc/gle-$(VERSION)
  
  doc_DATA = AUTHORS README COPYING
---- origsrc/gle-3.1.0/configure.in	2003-03-17 22:22:16.000000000 -0600
-+++ src/gle-3.1.0/configure.in	2007-05-25 15:26:55.085820600 -0500
-@@ -134,7 +134,7 @@
- #       cc @X_LIBS@ (-lfoo...) @X_PRE_LIBS@ -lX11 @X_EXTRA_LIBS@
- # (Perhaps X_LIBS should have been called X_LDFLAGS.)
- 
--X_LIBS="-lgle $X_LIBS -lXt -lX11"
-+X_LIBS="\$(top_builddir)/src/libgle.la $X_LIBS -lXt -lX11"
- 
- AC_OUTPUT(
-           Makefile
-@@ -146,5 +146,5 @@
-           ms-visual-c/Makefile
-           ms-visual-c/gle/Makefile
-           swig/Makefile,
--          [ln -sf src GL]
-+          [ln -sf $srcdir/src GL]
-           )
 --- origsrc/gle-3.1.0/doc/Makefile.am	2001-11-21 00:32:55.000000000 -0600
 +++ src/gle-3.1.0/doc/Makefile.am	2007-05-25 16:24:27.833140200 -0500
 @@ -1,7 +1,7 @@
@@ -61,16 +43,6 @@
     COPYING \
 --- origsrc/gle-3.1.0/src/Makefile.am	2003-03-17 22:09:44.000000000 -0600
 +++ src/gle-3.1.0/src/Makefile.am	2007-05-25 15:26:55.101445800 -0500
-@@ -21,7 +21,8 @@
-   view.c
- 
- 
--libgle_la_LDFLAGS = -version-info 4:0:1
-+libgle_la_LDFLAGS = -version-info 4:0:1 -no-undefined
-+libgle_la_LIBADD = -lGLU -lGL
- 
- # make sure we install gle.h into /usr/include/GL/gle.h or thereabouts
- pkgincludedir = $(includedir)/GL
 @@ -51,7 +52,7 @@
  
  CFLAGS = @CFLAGS@ -Wall -pedantic -Wstrict-prototypes  -Wconversion
