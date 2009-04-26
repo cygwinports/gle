@@ -4,12 +4,11 @@ SRC_URI="mirror://sourceforge/gle/${P}.tar.gz"
 PATCH_URI="
 	3.1.0-no-undefined.patch
 	3.1.0-vpath.patch
-	3.1.0-docdir.patch
 "
 
 PKG_NAMES="${PN} lib${PN}${PV_MAJ} lib${PN}-devel"
 libgle3_CONTENTS="--exclude=examples --exclude=html usr/bin/cyggle-3.dll usr/share/doc/"
-libgle_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/${P}/*/ usr/share/man/"
+libgle_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/${PN}/*/ usr/share/man/"
 
 CYGCONF_ARGS="--disable-static"
 
