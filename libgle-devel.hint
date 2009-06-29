@@ -1,5 +1,5 @@
 category: X11
-requires: cygwin libgle3 libGL-devel libGLU-devel
+requires: libgle3 libGL-devel libGLU-devel
 external-source: gle
 sdesc: "OpenGL Tubing and Extrusion library (development)"
 ldesc: "GLE is a library package of C functions that draw extruded
