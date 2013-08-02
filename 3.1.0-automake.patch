@@ -1,0 +1,51 @@
+doc/Makefile.am:10: SUFFIXES must be set with `=' before using `+='
+doc/html/Makefile.am:90: SUFFIXES must be set with `=' before using `+='
+man/Makefile.am:25: SUFFIXES must be set with `=' before using `+='
+man/Makefile.am:41: CLEANFILES must be set with `=' before using `+='
+src/Makefile.am:53: `CFLAGS' is a user variable, you should not override it;
+src/Makefile.am:53: use `AM_CFLAGS' instead.
+
+--- origsrc/gle-3.1.0/doc/Makefile.am	2001-11-21 00:32:55.000000000 -0600
++++ src/gle-3.1.0/doc/Makefile.am	2013-08-01 20:19:57.047847400 -0500
+@@ -7,5 +7,4 @@ doc_DATA =  COPYING.artistic gle-3.0.lsm
+ 
+ EXTRA_DIST = .cvsignore COPYING.artistic gle-3.0.lsm
+ 
+-SUFFIXES += .lsm
+ 
+--- origsrc/gle-3.1.0/doc/html/Makefile.am	2001-07-20 15:51:43.000000000 -0500
++++ src/gle-3.1.0/doc/html/Makefile.am	2013-08-01 20:20:41.423385500 -0500
+@@ -87,5 +87,4 @@ doc_DATA =  $(html_HTML) $(gif_HTML) $(g
+ 
+ EXTRA_DIST = .cvsignore $(doc_DATA)
+ 
+-SUFFIXES += .html .gif .jpg
+ 
+--- origsrc/gle-3.1.0/man/Makefile.am	2001-07-20 15:56:22.000000000 -0500
++++ src/gle-3.1.0/man/Makefile.am	2013-08-01 20:23:25.800787300 -0500
+@@ -22,7 +22,7 @@ EXTRA_DIST = \
+   $(man_RAW) \
+   Makefile.sgi
+ 
+-SUFFIXES += .man .3gle
++SUFFIXES = .man .3gle
+ 
+ # for the ordinary install, just copy the raw files ....
+ .man.3gle:
+@@ -38,4 +38,4 @@ SUFFIXES += .man .3gle
+ 	psroff -t -man < $< > $*.ps
+ 
+ 
+-CLEANFILES += $(man_MANS)
++CLEANFILES = $(man_MANS)
+--- origsrc/gle-3.1.0/src/Makefile.am	2013-08-01 20:18:15.914062800 -0500
++++ src/gle-3.1.0/src/Makefile.am	2013-08-01 20:23:43.876821200 -0500
+@@ -50,7 +50,7 @@ EXTRA_DIST = \
+ INCLUDES = \
+   @X_CFLAGS@
+ 
+-CFLAGS = @CFLAGS@ -Wall -pedantic -Wstrict-prototypes  -Wconversion
++AM_CFLAGS = @CFLAGS@ -Wall -pedantic -Wstrict-prototypes  -Wconversion
+ 
+ docdir = $(datadir)/doc/gle/
+ 

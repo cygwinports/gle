@@ -12,11 +12,17 @@ SRC_URI="mirror://sourceforge/gle/gle-${VERSION}.tar.gz"
 PATCH_URI="
 	3.1.0-no-undefined.patch
 	3.1.0-vpath.patch
+	3.1.0-automake.patch
 "
 
-PKG_NAMES="libgle3 libgle-devel"
+PKG_NAMES="libgle3 libgle-devel libgle-doc"
 libgle3_CONTENTS="--exclude=examples --exclude=html usr/bin/cyggle-3.dll usr/share/doc/"
-libgle_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/${PN}/*/ usr/share/man/"
+libgle_devel_CONTENTS="usr/include/ usr/lib/"
+libgle_doc_CATEGORY="Doc"
+libgle_doc_CONTENTS="usr/share/doc/gle/*/ usr/share/man/man3/"
+
+# minimum required by libtool-2.x
+WANT_AUTOMAKE=1.9
 
 src_install() {
 	cd ${B}
