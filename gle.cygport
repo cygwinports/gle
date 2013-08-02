@@ -1,0 +1,24 @@
+NAME="gle"
+VERSION=3.1.0
+RELEASE=10
+CATEGORY="Libs"
+SUMMARY="OpenGL Tubing and Extrusion library"
+DESCRIPTION="GLE is a library package of C functions that draw extruded
+surfaces, including surfaces of revolution, sweeps, tubes, polycones,
+polycylinders and helicoids. GLE uses the OpenGL APIs to perform the actual
+rendering."
+HOMEPAGE="http://linas.org/gle/"
+SRC_URI="mirror://sourceforge/gle/gle-${VERSION}.tar.gz"
+PATCH_URI="
+	3.1.0-no-undefined.patch
+	3.1.0-vpath.patch
+"
+
+PKG_NAMES="libgle3 libgle-devel"
+libgle3_CONTENTS="--exclude=examples --exclude=html usr/bin/cyggle-3.dll usr/share/doc/"
+libgle_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/${PN}/*/ usr/share/man/"
+
+src_install() {
+	cd ${B}
+	cyginstall -j1
+}
